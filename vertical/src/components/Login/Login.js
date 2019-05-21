@@ -1,12 +1,4 @@
 import React from 'react';
-import { 
-	LoginButton, 
-	LoginInput, 
-	LoginContainer, 
-	LoginAuth, 
-	LoginParagraph } from './LoginStyles';
-
-
 
 class Login extends React.Component {
 	constructor(props) {
@@ -24,17 +16,48 @@ class Login extends React.Component {
 	recordAuth = (event) => {
 		const user = this.state.username;
 		const pw = this.state.password;
+		const axios = require("axios");
+
+
+  var reqData = {
+    username: user,
+    password: pw,
+    grant_type: "password"
+  };
+
+  var queryString = Object.keys(reqData)
+    .map(key => key + "=" + reqData[key])
+    .join("&");
+
+  axios
+    .request({
+      url: "https://awsafran-vertical.herokuapp.com/oauth/token",
+      method: "post",
+      withCredentials: true,
+      auth: {
+        username: "lambda-client", // This is the client_id
+        password: "lambda-secret" // This is the client_secret,
+      },
+
+      data: queryString
+    })
+    .then(respose => {
+      console.log(respose);
+    })
+    .catch(error => {
+      console.log(error);
+    });
 		localStorage.setItem('username', JSON.stringify(user));
 		localStorage.setItem('password', JSON.stringify(pw));
-		window.location.reload();
+		//window.location.reload();
 	};
 
 	render() {
 		return (
-			<LoginContainer>
-				<LoginAuth>
-					<LoginParagraph>Enter your username:</LoginParagraph>
-					<LoginInput
+			<div>
+				<div>
+					<p>Enter your username:</p>
+					<input
 						userName
 						type="text"
 						placeholder="username"
@@ -42,8 +65,8 @@ class Login extends React.Component {
 						onChange={this.changeHandler}
 						value={this.state.username}
 					/>
-					<LoginParagraph>Enter your password:</LoginParagraph>
-					<LoginInput
+					<p>Enter your password:</p>
+					<input
 						password
 						placeholder="password"
 						name="password"
@@ -51,12 +74,12 @@ class Login extends React.Component {
 						value={this.state.password}
 						type="password"
 					/>
-					<LoginButton onClick={this.recordAuth}>login</LoginButton>
-				</LoginAuth>
+					<button onClick={this.recordAuth}>login</button>
+				</div>
 				<div className="signUpToday">
 					Sign up today for <span className="free">free</span>!!
 				</div>
-			</LoginContainer>
+			</div>
 		);
 	}
 }
