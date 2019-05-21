@@ -1,4 +1,6 @@
 import React from 'react';
+import './Login.css';
+
 
 class Login extends React.Component {
 	constructor(props) {
@@ -31,7 +33,7 @@ class Login extends React.Component {
 
   axios
     .request({
-      url: "https://awsafran-vertical.herokuapp.com/oauth/token",
+      url: "https://awsafran-vertical.herokuapp.com/users/me",
       method: "post",
       withCredentials: true,
       auth: {
@@ -49,12 +51,12 @@ class Login extends React.Component {
     });
 		localStorage.setItem('username', JSON.stringify(user));
 		localStorage.setItem('password', JSON.stringify(pw));
-		//window.location.reload();
+		window.location.reload();
 	};
 
 	render() {
 		return (
-			<div>
+			<div className='loginContainer'>
 				<div>
 					<p>Enter your username:</p>
 					<input

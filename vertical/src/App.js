@@ -4,7 +4,7 @@ import Axios from 'axios';
 import './App.css';
 import Authenticate from './components/Authentication/Authenticate.js';
 
-import { Home, About, Contact, Navigation } from './components/nav';
+import { Home, Goals, Contact, Navigation } from './components/nav';
 
 class App extends Component {
   constructor(props) {
@@ -22,7 +22,7 @@ class App extends Component {
   componentDidMount() {
     Axios.get('https://awsafran-vertical.herokuapp.com/workouts/all')
     .then((res) => {
-      console.log(res);
+      //console.log(res);
       this.setState({
         workouts: res.data[0],
         workout: this.state.workouts
@@ -36,7 +36,7 @@ class App extends Component {
         <div className='Nav'>
           <Navigation />
           <Route exact path="/" render={props => <Home workouts= {this.state.workouts} />}></Route>
-          <Route path="/about" component={About}></Route>
+          <Route path="/goals" component={Goals}></Route>
           <Route path="/contact" component={Contact}></Route>
         </div>
       </div>
