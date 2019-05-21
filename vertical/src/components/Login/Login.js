@@ -32,17 +32,8 @@ class Login extends React.Component {
     .join("&");
 
   axios
-    .request({
-      url: "https://awsafran-vertical.herokuapp.com/users/me",
-      method: "post",
-      withCredentials: true,
-      auth: {
-        username: "lambda-client", // This is the client_id
-        password: "lambda-secret" // This is the client_secret,
-      },
-
-      data: queryString
-    })
+      
+		.get('https://awsafran-vertical.herokuapp.com/users/me')
     .then(respose => {
       console.log(respose);
     })
@@ -51,7 +42,7 @@ class Login extends React.Component {
     });
 		localStorage.setItem('username', JSON.stringify(user));
 		localStorage.setItem('password', JSON.stringify(pw));
-		window.location.reload();
+		//window.location.reload();
 	};
 
 	render() {

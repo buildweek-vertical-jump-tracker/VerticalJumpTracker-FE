@@ -22,10 +22,11 @@ class App extends Component {
   componentDidMount() {
     Axios.get('https://awsafran-vertical.herokuapp.com/workouts/all')
     .then((res) => {
-      //console.log(res);
+      console.log(res);
       this.setState({
         workouts: res.data[0],
-        workout: this.state.workouts
+        workout: this.state.workouts,
+        today: this.state.workouts
       });
     })
     .catch((err) => console.log(err));
