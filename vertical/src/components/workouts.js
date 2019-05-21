@@ -4,29 +4,26 @@ import Workout from './workout';
 
 class Workouts extends Component {
   render() {
+    console.log(this.props);
     return (
       <div className="Workouts">
         <h1>Workouts Done</h1>
         <ul>
-          {this.props.workouts.map(workout => {
+        {this.props.workouts.exercises && this.props.workouts.exercises.map(workouts => {
             return (
-              <Workout
-                name={workout.name}
-                id={workout.id}
-                age={workout.age}
-                height={workout.height}
-                key={workout.id}
+              <Workout 
+                key={workouts.exerciseid}
+                exercise={workouts.exerciseName}
+                reps={workouts.reps}
+                sets={workouts.reps}
               />
             );
-          })}
+          })} 
         </ul>
       </div>
     );
   }
 }
 
-Workout.defaultProps = {
- workouts: [],
-};
 
 export default Workouts;

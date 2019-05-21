@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import Axios from 'axios';
 
 class WorkoutForm
  extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
+      exercise: '',
       reps: '',
       sets: ''
     };
@@ -13,14 +14,20 @@ class WorkoutForm
 
   addWorkout = event => {
     event.preventDefault();
-    // add code to create the workout using the api
-
-    this.setState({
-      name: '',
-      reps: '',
-      sets: ''
-    });
-  }
+    Axios 
+    .post('https://awsafran-vertical.herokuapp.com/workouts/all', this.state.workouts)
+    .then(res => {
+      console.log(res);
+      this.setState({
+        workouts: res.data,
+        exercise: '',
+        reps: '',
+        sets: ''
+      });
+    })
+    .catch((err) => console.log(err));
+    //window.location.reload();
+  };
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -33,9 +40,9 @@ class WorkoutForm
         <form onSubmit={this.addWorkout}>
           <input
             onChange={this.handleInputChange}
-            placeholder="name"
-            value={this.state.name}
-            name="name"
+            placeholder="exercise"
+            value={this.state.exerciseName}
+            name="exercise"
           />
           <input
             onChange={this.handleInputChange}
@@ -56,5 +63,4 @@ class WorkoutForm
   }
 }
 
-export default WorkoutForm
-;
+export default WorkoutForm;

@@ -7,16 +7,17 @@ class Home extends Component{
     constructor(props) {
         super(props);
         this.state = {
-          workouts: [],
+          workouts: props.workouts,
         };
     }
 
     render(){
+        console.log(this.props);
         return (
             <div>
                 <h1>Home</h1>
                 <WorkoutForm />
-                <Workouts workouts={this.state.workouts} />
+                <Workouts workouts={this.props.workouts} />
             </div>
         );
     };
