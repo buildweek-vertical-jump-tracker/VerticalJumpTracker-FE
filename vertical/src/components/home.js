@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Workouts from './workouts';
+import Workouts from './workouts/workouts';
 import Axios from 'axios';
 
 class Home extends Component{

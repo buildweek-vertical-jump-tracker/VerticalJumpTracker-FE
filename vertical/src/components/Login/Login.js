@@ -42,7 +42,7 @@ class Login extends React.Component {
     });
 		localStorage.setItem('username', JSON.stringify(user));
 		localStorage.setItem('password', JSON.stringify(pw));
-		//window.location.reload();
+		window.location.reload();
 	};
 
 	render() {
