@@ -1,19 +1,43 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-
+import Axios from 'axios';
 import './App.css';
+import Authenticate from './components/Authentication/Authenticate.js';
 
-
-import { Home, About, Contact, Navigation } from './components/nav';
+import { Home, Goals, Contact, Navigation } from './components/nav';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state ={
+      workouts: [],
+      workout: {
+        exercise: '',
+        reps: '',
+        sets: ''
+      }
+    }
+  }
+
+  componentDidMount() {
+    Axios.get('https://awsafran-vertical.herokuapp.com/workouts/all')
+    .then((res) => {
+      console.log(res);
+      this.setState({
+        workouts: res.data[0],
+        workout: this.state.workouts,
+        today: this.state.workouts
+      });
+    })
+    .catch((err) => console.log(err));
+  }
    render() {
     return (
       <div className="App">
         <div className='Nav'>
           <Navigation />
-          <Route exact path="/" component={Home}></Route>
-          <Route path="/about" component={About}></Route>
+          <Route exact path="/" render={props => <Home workouts= {this.state.workouts} />}></Route>
+          <Route path="/goals" component={Goals}></Route>
           <Route path="/contact" component={Contact}></Route>
         </div>
       </div>
@@ -21,4 +45,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Authenticate(App);

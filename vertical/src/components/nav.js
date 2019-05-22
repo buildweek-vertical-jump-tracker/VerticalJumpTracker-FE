@@ -1,6 +1,6 @@
 import Home from './home';
-import About from './about';
+import Goals from './goals';
 import Contact from './contact';
 import Navigation from './navigation';
 
-export { Home, About, Contact, Navigation };
+export { Home, Goals, Contact, Navigation };

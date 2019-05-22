@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
                         <Link to="/">Home</Link>
                     </div>
                     <div>
-                        <Link to="/about">About</Link>
+                        <Link to="/goals">Goals</Link>
                     </div>
                     <div>
                         <Link to="/contact">Contact</Link>
