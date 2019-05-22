@@ -7,18 +7,12 @@ export default class Chart extends Component {
 
         this.state = {
             data: {
-                labels: ["1", "2", "3", "4", "5"],
+                labels: this.props.measurements.map(measurement => measurement.creationDate),
                 datasets: [
                     {
-                        label: "Vertical Before",
-                        backgroundColor: "rgba(255, 0, 255, .75)",
-                        data: [6, 3, 5, 4,5, 6]
-                    }, 
-                    {
-                        label: "Vertical Now",
-                        backgroundColor: "rgba(0, 255, 0, .75)",
-                        data: [7, 12, 8, 14, 10, 16] 
-                    }
+                        data: this.props.measurements.map(measurement => measurement.vertical)
+                    } 
+                   
                 ]
             }
         }
@@ -46,6 +40,7 @@ export default class Chart extends Component {
     }
 
     render() {
+        //console.log(this.state);
         return (
             <div style={{ position: "relative", width: 600, height: 400}}>
                 <p> This is what you have achieved </p>

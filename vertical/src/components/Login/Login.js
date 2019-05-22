@@ -47,8 +47,10 @@ class Login extends React.Component {
 
 	render() {
 		return (
+		<div className='mainContainer'>
 			<div className='loginContainer'>
-				<div>
+				<div className='main'>
+					<h3>Please login to continue</h3>
 					<p>Enter your username:</p>
 					<input
 						userName
@@ -73,6 +75,7 @@ class Login extends React.Component {
 					Sign up today for <span className="free">free</span>!!
 				</div>
 			</div>
+		</div>
 		);
 	}
 }

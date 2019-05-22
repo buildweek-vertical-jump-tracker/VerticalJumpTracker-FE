@@ -14,11 +14,11 @@ class GoalsForm
   addWorkout = event => {
     event.preventDefault();
     Axios 
-    .post('https://awsafran-vertical.herokuapp.com/goal/all', this.state.goal)
+    .post('https://awsafran-vertical.herokuapp.com/goals/3', {"goalvertical":  this.state.goal})
     .then(res => {
       console.log(res);
       this.setState({
-        goal: res.data,
+        goal: '',
         plan: ''
       });
     })

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Workouts from './workouts/workouts';
 import Axios from 'axios';
 
+import './workouts/Home.css';
+
+
 class Home extends Component{
     constructor(props) {
         super(props);
@@ -9,6 +12,7 @@ class Home extends Component{
           workouts: props.workouts,
         };
     }
+    
     componentDidMount() {
         Axios.get('https://awsafran-vertical.herokuapp.com/workouts/today')
         .then((res) => {
@@ -22,7 +26,7 @@ class Home extends Component{
       }
     render(){
         return (
-            <div>
+            <div className='mainHome'>
                 <h1>Home</h1>
                 <Workouts workouts={this.props.workouts} today={this.state.today} />
             </div>
