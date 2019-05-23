@@ -2,7 +2,7 @@ import React, {Component}from 'react';
 import GoalsForm from './goalsForm';
 import Goal from './goal';
 import Chart from './chart';
-import Axios from 'axios';
+
 import axiosWithAuth from '../axiosWithAuth';
 
 
@@ -10,18 +10,18 @@ class Goals extends Component{
     constructor(props) {
         super(props);
         this.state = {
-         measurements:[]
+         measurements:[],
+         userId:''
         };
     }
 
 componentDidMount() {
-    // const token = localStorage.getItem('token');
-    
         axiosWithAuth().get('https://awsafran-vertical.herokuapp.com/users/me')
         .then((res) => {
-            //console.log(res.data);
+            console.log(res.data);
             this.setState({
-              measurements: res.data.measurements
+              measurements: res.data.measurements,
+              userId:res.data.userid
             })              
           })
           .catch((err) => console.log(err));
@@ -36,7 +36,7 @@ render() {
         <h1>Goals</h1>
         <p>Let's make S.M.A.R.T. Goals</p>
         <Goal />
-        <GoalsForm />
+        <GoalsForm userId={this.state.userId}/>
     </div>
     )
  }

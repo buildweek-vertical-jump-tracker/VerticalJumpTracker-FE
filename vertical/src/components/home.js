@@ -18,8 +18,7 @@ class Home extends Component{
         .then((res) => {
            //console.log(res);
            this.setState({
-              today: res.data
-                       
+              today: res.data                       
             });
           })
           .catch((err) => console.log(err));

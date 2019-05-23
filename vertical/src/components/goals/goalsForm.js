@@ -6,20 +6,18 @@ class GoalsForm
   constructor(props) {
     super(props);
     this.state = {
-      goal: '',
-      plan: ''
+      goal: ''
     };
   }
 
-  addWorkout = event => {
+  addGoal = event => {
     event.preventDefault();
     axiosWithAuth() 
     .post('https://awsafran-vertical.herokuapp.com/goals/3', {"goalvertical":  this.state.goal})
     .then(res => {
-      console.log(res);
+      console.log(res.data);
       this.setState({
-        goal: '',
-        plan: ''
+        goal: ''
       });
     })
     .catch((err) => console.log(err));
@@ -32,20 +30,13 @@ class GoalsForm
 
   render() {
     return (
-      <div className="GoalsForm
-      ">
-        <form onSubmit={this.addWorkout}>
+      <div className="GoalsForm">
+        <form onSubmit={this.addGoal}>
           <input
             onChange={this.handleInputChange}
             placeholder="goal"
             value={this.state.goal}
             name="goal"
-          />
-          <input
-            onChange={this.handleInputChange}
-            placeholder="plan"
-            value={this.state.plan}
-            name="plan"
           />
           <button type="submit">Start Goal</button>
         </form>
