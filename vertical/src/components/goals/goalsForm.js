@@ -10,9 +10,13 @@ class GoalsForm
     };
   }
 
-  
-
-
+  addGoal = (event) => {
+    event.preventDefault();
+    this.setState({
+      goal:''
+    })
+    this.props.addGoal(event, this.state.goal)
+  }
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -21,7 +25,7 @@ class GoalsForm
   render() {
     return (
       <div className="GoalsForm">
-        <form onSubmit={this.props.addGoal}>
+        <form onSubmit={(event) => this.addGoal(event)}>
           <input
             onChange={this.handleInputChange}
             placeholder="goal"

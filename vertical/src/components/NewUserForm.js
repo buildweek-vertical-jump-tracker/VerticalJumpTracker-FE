@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import axiosWithAuth from './axiosWithAuth';
 
+import Axios from 'axios';
 
 class NewUserForm
  extends Component {
@@ -15,21 +15,20 @@ class NewUserForm
 
   addUser = (event) => {
     event.preventDefault();
-     axiosWithAuth() 
-     .post('https://awsafran-vertical.herokuapp.com/users', {
-       "username":  this.state.username, 
-       "password": this.state.password, 
-       "height": this.state.height})
-     .then(res => {
-       console.log(res.data);
-       this.setState({
-        username:'',
-        password:'',
-        height:''
-        });
-     })
-     .catch((err) => console.log(err));
-    //window.location.reload();
+     Axios 
+      .post('https://awsafran-vertical.herokuapp.com/newuser', {
+        "username":  this.state.username, 
+        "password": this.state.password, 
+        "height": this.state.height})
+      .then(res => {
+        //console.log(res);
+         this.setState({
+          username:'',
+          password:'',
+          height:''
+          });
+      })
+      .catch((err) => console.log(err));
   };
 
 
@@ -41,7 +40,7 @@ class NewUserForm
   render() {
     return (
       <div className="NewUserForm">
-        <form onSubmit={this.state.addUser}>
+        <form onSubmit={(event) => this.addUser(event)}>
         <input
             onChange={this.handleInputChange}
             placeholder="username"
@@ -60,7 +59,7 @@ class NewUserForm
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Register</button>
+          <button type="submit" onSubmit={(event) => this.addUser(event)}>Register</button>
         </form>
       </div>
     );

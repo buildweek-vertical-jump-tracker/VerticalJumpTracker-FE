@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
  class Navigation extends Component {
     constructor(){
@@ -10,9 +10,7 @@ import { Link, Redirect } from 'react-router-dom';
         }
     }
     removeItem = () => {
-        localStorage.removeItem('token');
-        //return <Redirect to="/login" />
-        
+        localStorage.removeItem('token');     
         this.props.history.push('/Login')
         
     }
