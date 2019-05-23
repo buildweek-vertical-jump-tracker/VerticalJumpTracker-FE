@@ -6,9 +6,26 @@ import axiosWithAuth from '../axiosWithAuth';
 
 
 class Workouts extends Component {
+  constructor(props){
+    super(props);
+      this.state = {
+        userId: ''
+      }
+    }
+
+  componentDidMount() {
+    axiosWithAuth().get('https://awsafran-vertical.herokuapp.com/users/me')
+    .then((res) => {
+        //console.log(res.data);
+        this.setState({
+         userId:res.data.userid,        
+          })              
+      })
+      .catch((err) => console.log(err));
+}
 
   incrementWorkout() {
-    axiosWithAuth().get('https://awsafran-vertical.herokuapp.com/workouts/3')
+    axiosWithAuth().get(`https://awsafran-vertical.herokuapp.com/workouts/${this.state.userId}`)
      .then((res) => {
        //console.log(res);
        })
