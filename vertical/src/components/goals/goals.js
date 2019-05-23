@@ -14,8 +14,10 @@ class Goals extends Component{
     }
 
 componentDidMount() {
+    const token = localStorage.getItem('token');
     Axios
-        .get('https://awsafran-vertical.herokuapp.com/users/me')
+        .get('https://awsafran-vertical.herokuapp.com/users/me',{headers:{ 'Content-Type': 'application/json',
+        'Authorization': `bearer ${token}`}})
         .then((res) => {
             //console.log(res.data);
             this.setState({
