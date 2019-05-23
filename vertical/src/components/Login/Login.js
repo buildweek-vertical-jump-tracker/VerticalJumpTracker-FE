@@ -1,13 +1,14 @@
 import React from 'react';
 import './Login.css';
-
+import { Redirect } from 'react-router-dom';
 
 class Login extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			username: '',
-			password: ''
+			password: '',
+			login: false
 		};
 	}
 
@@ -15,7 +16,7 @@ class Login extends React.Component {
 		this.setState({ [event.target.name]: event.target.value });
 	};
 
-	recordAuth = (event) => {  
+	recordAuth = () => {  
 	fetch("https://awsafran-vertical.herokuapp.com/oauth/token", {
 		body: `grant_type=password&username=${this.state.username}&password=${this.state.password}`,
 		headers: {
@@ -23,14 +24,15 @@ class Login extends React.Component {
 			"Content-Type": "application/x-www-form-urlencoded"
 		},
 		method: "POST"
-	}).then(res => res.json()).then(res =>{
-	localStorage.setItem('token', res.access_token);
-	this.props.history.push('/home')
-	})
-	.catch( err => {
-		console.log(err);
-	})
-	}
+		}).then(res => res.json()).then(res =>{
+		localStorage.setItem('token', res.access_token);
+		this.setState({login: true});
+		//console.log(res);
+		})
+		.catch( err => {
+			console.log(err);
+		});
+	};
 
 	render() {
 		return (
@@ -56,12 +58,13 @@ class Login extends React.Component {
 						value={this.state.password}
 						type="password"
 					/>
-					<button onClick={this.recordAuth}>login</button>
+					<button onClick={() => this.recordAuth()}>login</button>
 				</div>
 				<div className="signUpToday">
 					Sign up today for <span className="free">free</span>!!
 				</div>
 			</div>
+			{this.state.login && <Redirect to="/home" />}
 		</div>
 		);
 	}

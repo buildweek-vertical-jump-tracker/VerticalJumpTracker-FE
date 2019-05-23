@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Workouts from './workouts/workouts';
 import axiosWithAuth from './axiosWithAuth';
 import './workouts/Home.css';
-import Axios from 'axios';
+
 
 
 class Home extends Component{
@@ -14,15 +14,11 @@ class Home extends Component{
     }
 
     componentDidMount() {
-      const token = localStorage.getItem('token');
-      //    axiosWithAuth.get('https://awsafran-vertical.herokuapp.com/workouts/today')
-      Axios.get('https://awsafran-vertical.herokuapp.com/workouts/today', {headers:{ 'Content-Type': 'application/json',
-      'Authorization': `bearer ${token}`}})
-          .then((res) => {
+      axiosWithAuth().get('https://awsafran-vertical.herokuapp.com/workouts/today')
+        .then((res) => {
            //console.log(res);
            this.setState({
-              today: res.data
-                       
+              today: res.data                       
             });
           })
           .catch((err) => console.log(err));
