@@ -11,7 +11,8 @@ class Goals extends Component{
         super(props);
         this.state = {
          measurements:[],
-         userId:''
+         userId:'', 
+         goalsList: []
         };
     }
 
@@ -21,11 +22,27 @@ componentDidMount() {
             console.log(res.data);
             this.setState({
               measurements: res.data.measurements,
-              userId:res.data.userid
+              userId:res.data.userid,
+              goalsList: res.data.goals,
+              
             })              
           })
           .catch((err) => console.log(err));
 }
+
+addGoal = (event, goal) => {
+    event.preventDefault();
+     axiosWithAuth() 
+     .post(`https://awsafran-vertical.herokuapp.com/goals/${this.state.userId}`, {"goalvertical":  goal})
+     .then(res => {
+       console.log(res.data);
+       this.setState({
+         goalsList: []
+        });
+     })
+     .catch((err) => console.log(err));
+    //window.location.reload();
+  };
 
 
 render() { 
@@ -35,8 +52,8 @@ render() {
         {this.state.measurements.length > 0 &&  <Chart measurements={this.state.measurements} />}
         <h1>Goals</h1>
         <p>Let's make S.M.A.R.T. Goals</p>
-        <Goal />
-        <GoalsForm userId={this.state.userId}/>
+        {this.state.goalsList.map(goal => <Goal goal={3}/>)}
+        <GoalsForm userId={this.state.userId} addGoal={this.addGoal} />
     </div>
     )
  }

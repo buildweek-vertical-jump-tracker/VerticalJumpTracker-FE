@@ -9,14 +9,12 @@ import { Link } from 'react-router-dom';
                 <div className="App">
                     <h1> Vertical Jump Tracker </h1>
                     <div>
-                        <Link to="/">Home</Link>
+                        <Link to="/home">Home</Link>
                     </div>
                     <div>
                         <Link to="/goals">Goals</Link>
                     </div>
-                    <div>
-                        <Link to="/contact">Contact</Link>
-                    </div>
+                    <button onClick={() => localStorage.removeItem('token')} > Logout</button>
                 </div>
             </div>
         );

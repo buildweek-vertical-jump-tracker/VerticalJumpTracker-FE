@@ -5,8 +5,8 @@ export default function(){
     //const Axios = require('axios');
     return Axios.create({
         headers:{
-            get:{'Content-Type': 'application/json',
-            'Authorization': `bearer ${token}`}
+            'Content-Type': 'application/json',
+            'Authorization': `bearer ${token}`
         }
     });
 };

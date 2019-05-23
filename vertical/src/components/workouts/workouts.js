@@ -10,13 +10,13 @@ class Workouts extends Component {
   incrementWorkout() {
     axiosWithAuth().get('https://awsafran-vertical.herokuapp.com/workouts/3')
      .then((res) => {
-       console.log(res);
+       //console.log(res);
        })
      console.log('button clicked')
   }
 
   render() {
-    console.log(this.props);
+    //console.log(this.props);
     return (
       <div className="Workouts">
         <h1>Today's Workouts</h1>

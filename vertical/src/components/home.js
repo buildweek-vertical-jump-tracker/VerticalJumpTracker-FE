@@ -9,12 +9,15 @@ class Home extends Component{
     constructor(props) {
         super(props);
         this.state = {
-          workouts: props.workouts,
+          workouts: [],
+
         };
     }
 
     componentDidMount() {
+      //console.log("home is calling you");
       axiosWithAuth().get('https://awsafran-vertical.herokuapp.com/workouts/today')
+      
         .then((res) => {
            //console.log(res);
            this.setState({
@@ -22,12 +25,23 @@ class Home extends Component{
             });
           })
           .catch((err) => console.log(err));
-      }
+      
+      axiosWithAuth().get('https://awsafran-vertical.herokuapp.com/workouts/all')
+      .then((res) => {
+              //console.log(res);
+              this.setState({
+                workouts: res.data[0],
+                
+              });
+            })
+            .catch((err) => console.log(err));
+    }
+
     render(){
         return (
             <div className='mainHome'>
                 <h1>Home</h1>
-                <Workouts workouts={this.props.workouts} today={this.state.today} />
+                <Workouts workouts={this.state.workouts} today={this.state.today} />
             </div>
         );
     };
