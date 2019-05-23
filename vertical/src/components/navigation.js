@@ -11,7 +11,10 @@ import { Link, Redirect } from 'react-router-dom';
     }
     removeItem = () => {
         localStorage.removeItem('token');
-        return <Redirect to="/login" />
+        //return <Redirect to="/login" />
+        
+        this.props.history.push('/Login')
+        
     }
      render() {
         return (
@@ -24,7 +27,7 @@ import { Link, Redirect } from 'react-router-dom';
                     <div>
                         <Link to="/goals">Goals</Link>
                     </div>
-                    <button onClick={() => this.removeItem() }> Logout</button>
+                    <button onClick={() => this.removeItem() }> Logout </button>
                 </div>
             </div>
         );

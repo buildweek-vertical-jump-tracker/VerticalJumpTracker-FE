@@ -1,4 +1,4 @@
 [build]
-base = "VerticalJumpTracker-FE/"
-publish = "VerticalJumpTracker-FE/build/"
+base = "vertical/"
+publish = "vertical/build/"
 command = "yarn build"
