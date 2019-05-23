@@ -41,7 +41,7 @@ class Home extends Component{
         return (
             <div className='mainHome'>
                 <h1>Home</h1>
-                <Workouts workouts={this.state.workouts} today={this.state.today} />
+                <Workouts workouts ={this.state.workouts} today={this.state.today} />
             </div>
         );
     };

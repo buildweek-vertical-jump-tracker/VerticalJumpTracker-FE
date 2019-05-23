@@ -12,7 +12,8 @@ class Goals extends Component{
         this.state = {
          measurements:[],
          userId:'', 
-         goalsList: []
+         goalsList: [],
+         goalid: ''
         };
     }
 
@@ -32,8 +33,9 @@ componentDidMount() {
 
 addGoal = (event, goal) => {
     event.preventDefault();
+    //console.log(goal);
      axiosWithAuth() 
-     .post(`https://awsafran-vertical.herokuapp.com/goals/${this.state.userId}`, {"goalvertical":  goal})
+     .post(`https://awsafran-vertical.herokuapp.com/goals/${this.state.userId}`, {"goalvertical":  parseInt(goal)})
      .then(res => {
        console.log(res.data);
        this.setState({
@@ -41,9 +43,18 @@ addGoal = (event, goal) => {
         });
      })
      .catch((err) => console.log(err));
-    //window.location.reload();
+    window.location.reload();
   };
 
+  deleteGoal = (event , goalid) => {
+    event.preventDefault();
+    axiosWithAuth()
+    .delete(`https://awsafran-vertical.herokuapp.com/goals/delete/${goalid}`)
+    .then(res => {
+
+    })
+    .catch((err) => console.log(err));
+  }
 
 render() { 
     return(
@@ -52,7 +63,7 @@ render() {
         {this.state.measurements.length > 0 &&  <Chart measurements={this.state.measurements} />}
         <h1>Goals</h1>
         <p>Let's make S.M.A.R.T. Goals</p>
-        {this.state.goalsList.map(goal => <Goal goal={3}/>)}
+        {this.state.goalsList.map(goal => <Goal goal={goal.goalvertical}/>)}
         <GoalsForm userId={this.state.userId} addGoal={this.addGoal} />
     </div>
     )
