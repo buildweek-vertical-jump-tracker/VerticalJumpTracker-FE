@@ -1,6 +1,6 @@
 import React from 'react';
 import './Login.css';
-
+import { Link } from 'react-router-dom';
 
 class Login extends React.Component {
 
@@ -53,7 +53,7 @@ class Login extends React.Component {
 					<button onClick={() => this.recordAuth()}>login</button>
 				</div>
 				<div className="signUpToday">
-					Sign up today for <span className="free">free</span>!!
+					Sign up today for <Link to='/newUser' className="free">free</Link>!!
 				</div>
 			</div>			
 		</div>

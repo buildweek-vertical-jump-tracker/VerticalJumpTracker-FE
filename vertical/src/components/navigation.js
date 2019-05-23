@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
  class Navigation extends Component {
+    constructor(){
+        super()
+        this.state = {
+            logout: false
+        }
+    }
+    removeItem = () => {
+        localStorage.removeItem('token');
+        return <Redirect to="/login" />
+    }
      render() {
         return (
             <div>
@@ -14,7 +24,7 @@ import { Link } from 'react-router-dom';
                     <div>
                         <Link to="/goals">Goals</Link>
                     </div>
-                    <button onClick={() => localStorage.removeItem('token')} > Logout</button>
+                    <button onClick={() => this.removeItem() }> Logout</button>
                 </div>
             </div>
         );
