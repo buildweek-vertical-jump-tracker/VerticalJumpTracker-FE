@@ -15,7 +15,7 @@ class Home extends Component{
     }
 
     componentDidMount() {
-      console.log("home is calling you");
+      //console.log("home is calling you");
       axiosWithAuth().get('https://awsafran-vertical.herokuapp.com/workouts/today')
       
         .then((res) => {

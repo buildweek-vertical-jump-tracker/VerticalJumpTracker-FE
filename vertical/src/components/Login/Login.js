@@ -1,16 +1,8 @@
 import React from 'react';
 import './Login.css';
-import { Redirect } from 'react-router-dom';
+
 
 class Login extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			username: '',
-			password: '',
-			login: false
-		};
-	}
 
 	changeHandler = (event) => {
 		this.setState({ [event.target.name]: event.target.value });
@@ -48,8 +40,7 @@ class Login extends React.Component {
 						type="text"
 						placeholder="username"
 						name="username"
-						onChange={this.changeHandler}
-						value={this.state.username}
+						onChange={this.changeHandler}						
 					/>
 					<p>Enter your password:</p>
 					<input
@@ -57,7 +48,6 @@ class Login extends React.Component {
 						placeholder="password"
 						name="password"
 						onChange={this.changeHandler}
-						value={this.state.password}
 						type="password"
 					/>
 					<button onClick={() => this.recordAuth()}>login</button>
@@ -65,8 +55,7 @@ class Login extends React.Component {
 				<div className="signUpToday">
 					Sign up today for <span className="free">free</span>!!
 				</div>
-			</div>
-			{/* {this.state.login && <Redirect to="/home" />} */}
+			</div>			
 		</div>
 		);
 	}

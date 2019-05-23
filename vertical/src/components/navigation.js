@@ -14,9 +14,6 @@ import { Link } from 'react-router-dom';
                     <div>
                         <Link to="/goals">Goals</Link>
                     </div>
-                    <div>
-                        <Link to="/contact">Contact</Link>
-                    </div>
                     <button onClick={() => localStorage.removeItem('token')} > Logout</button>
                 </div>
             </div>
