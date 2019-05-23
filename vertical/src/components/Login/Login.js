@@ -26,12 +26,14 @@ class Login extends React.Component {
 		method: "POST"
 		}).then(res => res.json()).then(res =>{
 		localStorage.setItem('token', res.access_token);
-		this.setState({login: true});
+		this.props.history.push('/home')
+		//this.setState({login: true});
 		//console.log(res);
 		})
 		.catch( err => {
 			console.log(err);
 		});
+		
 	};
 
 	render() {
@@ -64,7 +66,7 @@ class Login extends React.Component {
 					Sign up today for <span className="free">free</span>!!
 				</div>
 			</div>
-			{this.state.login && <Redirect to="/home" />}
+			{/* {this.state.login && <Redirect to="/home" />} */}
 		</div>
 		);
 	}
