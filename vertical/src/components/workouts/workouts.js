@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
-import Axios from 'axios';
 import Workout from './workout';
 import Today from './today';
-//import axiosWithAuth from '../axiosWithAuth';
+
+import axiosWithAuth from '../axiosWithAuth';
 
 
 class Workouts extends Component {
 
   incrementWorkout() {
-    const token = localStorage.getItem('token');
-    // axiosWithAuth.get('https://awsafran-vertical.herokuapp.com/workouts/3')
-    Axios.get('https://awsafran-vertical.herokuapp.com/workouts/3', {headers:{ 'Content-Type': 'application/json',
-    'Authorization': `bearer ${token}`}})
+    axiosWithAuth().get('https://awsafran-vertical.herokuapp.com/workouts/3')
      .then((res) => {
-       //console.log(res);
+       console.log(res);
        })
      console.log('button clicked')
   }

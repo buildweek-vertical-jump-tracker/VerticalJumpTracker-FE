@@ -29,8 +29,9 @@ class Login extends React.Component {
 	})
 	.catch( err => {
 		console.log(err);
-	})
-	}
+	});
+	window.location.reload();
+	};
 
 	render() {
 		return (

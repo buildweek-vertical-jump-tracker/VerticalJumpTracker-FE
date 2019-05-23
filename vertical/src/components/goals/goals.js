@@ -3,6 +3,7 @@ import GoalsForm from './goalsForm';
 import Goal from './goal';
 import Chart from './chart';
 import Axios from 'axios';
+import axiosWithAuth from '../axiosWithAuth';
 
 
 class Goals extends Component{
@@ -14,10 +15,9 @@ class Goals extends Component{
     }
 
 componentDidMount() {
-    const token = localStorage.getItem('token');
-    Axios
-        .get('https://awsafran-vertical.herokuapp.com/users/me',{headers:{ 'Content-Type': 'application/json',
-        'Authorization': `bearer ${token}`}})
+    // const token = localStorage.getItem('token');
+    
+        axiosWithAuth().get('https://awsafran-vertical.herokuapp.com/users/me')
         .then((res) => {
             //console.log(res.data);
             this.setState({
