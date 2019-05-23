@@ -1,12 +1,14 @@
 import React from 'react';
 
+import './Home.css';
+
 const Workout = props => {
   return (
     <div className="Workout">
       <h3>{props.exercise}</h3>
-      <strong>{props.reps} reps</strong>
+      <p>{props.reps} reps</p>
       <br/>
-      <strong>{props.sets} sets </strong>
+      <p>{props.sets} sets </p>
     </div>
   );
 };

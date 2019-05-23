@@ -1,12 +1,14 @@
 import React from 'react';
 
+import './Home.css';
+
 const Today = props => {
   return (
     <div className="Today">
-      <h3>{props.exercise}</h3>
-      <strong>{props.reps} reps</strong>
+      <h3 className='todayH3'>{props.exercise}</h3>
+      <p>{props.reps} reps</p>
       <br/>
-      <strong>{props.sets} sets </strong>
+      <p>{props.sets} sets </p>
     </div>
         
   

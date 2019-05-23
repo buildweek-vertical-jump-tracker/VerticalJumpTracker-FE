@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import Workouts from './workouts';
+import Workouts from './workouts/workouts';
+import axiosWithAuth from './axiosWithAuth';
+import './workouts/Home.css';
 import Axios from 'axios';
+
 
 class Home extends Component{
     constructor(props) {
@@ -9,20 +12,24 @@ class Home extends Component{
           workouts: props.workouts,
         };
     }
+
     componentDidMount() {
-        Axios.get('https://awsafran-vertical.herokuapp.com/workouts/today')
-        .then((res) => {
-          console.log(res);
-          this.setState({
-            today: res.data
+      const token = localStorage.getItem('token');
+      //    axiosWithAuth.get('https://awsafran-vertical.herokuapp.com/workouts/today')
+      Axios.get('https://awsafran-vertical.herokuapp.com/workouts/today', {headers:{ 'Content-Type': 'application/json',
+      'Authorization': `bearer ${token}`}})
+          .then((res) => {
+           //console.log(res);
+           this.setState({
+              today: res.data
                        
-          });
-        })
-        .catch((err) => console.log(err));
+            });
+          })
+          .catch((err) => console.log(err));
       }
     render(){
         return (
-            <div>
+            <div className='mainHome'>
                 <h1>Home</h1>
                 <Workouts workouts={this.props.workouts} today={this.state.today} />
             </div>
