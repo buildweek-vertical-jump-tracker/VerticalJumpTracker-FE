@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import Axios from 'axios';
+//import Axios from 'axios';
 import Workout from './workout';
 import Today from './today';
+import axiosWithAuth from '../axiosWithAuth';
 
 class Workouts extends Component {
 
   incrementWorkout() {
-    Axios.get('https://awsafran-vertical.herokuapp.com/workouts/3')
+    axiosWithAuth.get('https://awsafran-vertical.herokuapp.com/workouts/3')
     .then((res) => {
       console.log(res);
       })

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Axios from 'axios';
+import axiosWithAuth from '../axiosWithAuth';
 
 class GoalsForm
  extends Component {
@@ -13,7 +13,7 @@ class GoalsForm
 
   addWorkout = event => {
     event.preventDefault();
-    Axios 
+    axiosWithAuth 
     .post('https://awsafran-vertical.herokuapp.com/goals/3', {"goalvertical":  this.state.goal})
     .then(res => {
       console.log(res);

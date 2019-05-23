@@ -10,6 +10,7 @@ export default class Chart extends Component {
                 labels: this.props.measurements.map(measurement => measurement.creationDate),
                 datasets: [
                     {
+                        label:"New Vertical",
                         data: this.props.measurements.map(measurement => measurement.vertical)
                     } 
                    

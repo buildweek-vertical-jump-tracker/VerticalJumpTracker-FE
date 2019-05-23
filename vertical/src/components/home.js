@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Workouts from './workouts/workouts';
-import Axios from 'axios';
-
+import axiosWithAuth from './axiosWithAuth';
+//import Axios from 'axios';
 import './workouts/Home.css';
 
 
@@ -12,9 +12,9 @@ class Home extends Component{
           workouts: props.workouts,
         };
     }
-    
+
     componentDidMount() {
-        Axios.get('https://awsafran-vertical.herokuapp.com/workouts/today')
+        axiosWithAuth.get('https://awsafran-vertical.herokuapp.com/workouts/today')
         .then((res) => {
           console.log(res);
           this.setState({

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import Axios from 'axios';
+import axiosWithAuth from './components/axiosWithAuth';
 import './App.css';
 import Authenticate from './components/Authentication/Authenticate.js';
-
+//import Axios from 'axios';
 import { Home, Goals, Contact, Navigation } from './components/nav';
 
 class App extends Component {
@@ -20,7 +20,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    Axios.get('https://awsafran-vertical.herokuapp.com/workouts/all')
+    axiosWithAuth.get('https://awsafran-vertical.herokuapp.com/workouts/all')
     .then((res) => {
       //console.log(res);
       this.setState({
