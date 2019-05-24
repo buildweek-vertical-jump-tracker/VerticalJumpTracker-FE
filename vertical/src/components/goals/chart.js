@@ -19,6 +19,19 @@ export default class Chart extends Component {
         }
     }
 
+    // addVertical = (event) => {
+    //     event.preventDefault();
+    //      Axios 
+    //       .post(`https://awsafran-vertical.herokuapp.com/measurements/${userid}`)
+    //       .then(res => {
+    //         //console.log(res);
+    //          this.setState({
+             
+    //           });
+    //       })
+    //       .catch((err) => console.log(err)); 
+          
+          
     setGradientColor = (canvas, color) => {
         const ctx = canvas.getContext('2d');
         const gradient = ctx.createLinearGradient(0, 0, 600, 400);

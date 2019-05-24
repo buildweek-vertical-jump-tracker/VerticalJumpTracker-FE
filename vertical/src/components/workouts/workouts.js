@@ -30,7 +30,7 @@ class Workouts extends Component {
      .then((res) => {
        console.log(res.data);
        })
-     //console.log('button clicked')
+     console.log('button clicked')
   }
 
   addPlan = (e, planlength, interval) => {
