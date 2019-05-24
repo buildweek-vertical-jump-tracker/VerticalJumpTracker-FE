@@ -1,17 +1,22 @@
 .mainContainer{
     background-image: url("athletes-ball-basketball-1839836.jpg");
+    background-position: center center;
+    background-size: cover;
     background-repeat: no-repeat;
-    width: 800px;
-    height: 600px;
+    max-width: 800px;
+    max-height: 800px;
+    min-height: 600px;
+    margin: auto;
 }
 
 .loginContainer {
-    width: 500px;
-    height: 350px; 
+    max-width: 500px;
+    /* height: 350px;  */
     text-align: center;
     margin: auto;
     margin-top: 50px;
-    opacity: .6;
+    padding-top: 100px;
+    opacity: .5;
 }
 .loginContainer:hover{
     opacity: 1.0;

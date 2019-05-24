@@ -66,7 +66,7 @@ render() {
     return(
     <div className='goalsContainer'>
         <h1 className='progressHeader'>Progress</h1>
-        {this.state.measurements.length > 0 &&  <Chart className='chart' measurements={this.state.measurements} />}
+        {this.state.measurements.length > 0 &&  <Chart className='chart' measurements={this.state.measurements} userId={this.state.userId} />}
         <h1 className='goalsHeader'>Goals</h1>
         <p className='goalsP'>Let's make S.M.A.R.T. Goals</p>
         <GoalsForm userId={this.state.userId} addGoal={this.addGoal} />

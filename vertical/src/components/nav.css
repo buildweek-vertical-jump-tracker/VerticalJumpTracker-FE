@@ -1,0 +1,39 @@
+.AppNav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    align-items: center;
+    max-width: 800px;
+    margin: auto;
+}
+@media (max-width: 500px){
+    .AppNav{
+        flex-direction: column;
+    }
+  }
+
+.title{
+    justify-content: flex-start;
+}
+
+.home{
+    
+}
+.home:hover{
+    font-size: 25px;
+}
+
+.goals{
+      
+}
+.goals:hover{
+    font-size: 25px;
+}
+
+.navButton{
+    text-decoration: underline;
+}
+.navButton:hover{
+    color:#000080;
+    font-size: 25px;
+}

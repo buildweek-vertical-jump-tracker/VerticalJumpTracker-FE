@@ -3,6 +3,7 @@
 }
 .mainHome{
     max-width: 800px;
+    margin: auto;
     background-image: url("action-athlete-audience-1839834.jpg");
     background-position: center center;
     background-size: cover;
