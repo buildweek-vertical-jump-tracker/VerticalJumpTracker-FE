@@ -30,7 +30,7 @@ class Workouts extends Component {
      .then((res) => {
        console.log(res.data);
        })
-     //console.log('button clicked')
+     console.log('button clicked')
   }
 
   addPlan = (e, planlength, interval) => {
@@ -52,35 +52,41 @@ class Workouts extends Component {
     //console.log(this.props);
     return (
       <div className="Workouts">
-        <h1>Today's Workouts</h1>
-        <ul>
-        {this.props.today && this.props.today.exercises.map(workouts => { 
-          return (
-            <Today 
-              key={workouts.exerciseid}
-              exercise={workouts.exerciseName}
-              reps={workouts.reps}
-              sets={workouts.sets}
-            /> 
-          );
-        })}
-        </ul>
-        <button onClick = {() => this.incrementWorkout()}>Mark Complete</button>
-        <h1>Start a New Routine</h1>
-          <PlanForm  addPlan={this.addPlan}/>
-        <h1>Workouts Done</h1>
-        <ul>
-        {this.props.workouts.exercises && this.props.workouts.exercises.map(workouts => {
+        <div className='todayDo'>
+          <h1 className='todayH1'>Today's Workouts</h1>
+          <ul>
+          {this.props.today && this.props.today.exercises.map(workouts => { 
             return (
-              <Workout 
+              <Today 
                 key={workouts.exerciseid}
                 exercise={workouts.exerciseName}
                 reps={workouts.reps}
                 sets={workouts.sets}
-              />
+              /> 
             );
-          })} 
-        </ul>
+          })}
+          </ul>
+          <button onClick = {() => this.incrementWorkout()}>Mark Complete</button>
+        </div>
+        <div className='routine'>
+          <h1 className='routineH1'>Start a New Routine</h1>
+          <PlanForm  addPlan={this.addPlan}/>
+        </div>
+        <div className='workoutsDone'>
+          <h1 className='workoutsH1'>Workouts Done</h1>
+          <ul>
+          {this.props.workouts.exercises && this.props.workouts.exercises.map(workouts => {
+              return (
+                <Workout 
+                  key={workouts.exerciseid}
+                  exercise={workouts.exerciseName}
+                  reps={workouts.reps}
+                  sets={workouts.sets}
+                />
+              );
+            })} 
+          </ul>
+        </div>
       </div>
     );
   }

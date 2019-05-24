@@ -59,7 +59,7 @@ class NewUserForm
             value={this.state.height}
             name="height"
           />
-          <button type="submit" onSubmit={(event) => this.addUser(event)}>Register</button>
+          <button className='newUserButton' type="submit" onSubmit={(event) => this.addUser(event)}>Register</button>
         </form>
       </div>
     );

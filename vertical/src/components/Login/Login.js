@@ -37,6 +37,7 @@ class Login extends React.Component {
 					<p>Enter your username:</p>
 					<input
 						userName
+						required
 						type="text"
 						placeholder="username"
 						name="username"
@@ -45,6 +46,7 @@ class Login extends React.Component {
 					<p>Enter your password:</p>
 					<input
 						password
+						required
 						placeholder="password"
 						name="password"
 						onChange={this.changeHandler}

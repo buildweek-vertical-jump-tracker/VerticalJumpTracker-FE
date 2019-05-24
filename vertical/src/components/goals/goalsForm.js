@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './goals.css';
 
 class GoalsForm
  extends Component {
@@ -32,7 +32,7 @@ class GoalsForm
             value={this.state.goal}
             name="goal"
           />
-          <button type="submit">Start Goal</button>
+          <button className='goalFormButton' type="submit">Start Goal</button>
         </form>
       </div>
     );

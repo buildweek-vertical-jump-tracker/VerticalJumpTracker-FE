@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Line } from 'react-chartjs-2';
+import './goals.css';
+import axiosWithAuth from '../axiosWithAuth';
 
 export default class Chart extends Component {
     constructor(props) {
@@ -19,6 +21,34 @@ export default class Chart extends Component {
         }
     }
 
+     addVertical = (event) => {
+         event.preventDefault();
+          axiosWithAuth()
+           .post(`https://awsafran-vertical.herokuapp.com/measurements/${this.props.userId}`, {"vertical":  parseInt(this.state.measurement)})
+           .then(res => {
+             console.log(res);
+             console.log('this is measurement', this.state.measurement)
+              this.setState({
+                measurement:'',
+                data: {
+                    labels: res.data.map(measurement => measurement.creationDate),
+                    datasets: [
+                        {
+                            label:"New Vertical",
+                            data: res.data.map(measurement => measurement.vertical)
+                        } 
+                       
+                    ]
+                }
+               });
+           })
+           .catch((err) => console.log(err));
+        } 
+          
+        handleInputChange = e => {
+            this.setState({ [e.target.name]: e.target.value });
+          };
+          
     setGradientColor = (canvas, color) => {
         const ctx = canvas.getContext('2d');
         const gradient = ctx.createLinearGradient(0, 0, 600, 400);
@@ -38,19 +68,29 @@ export default class Chart extends Component {
             })
         }
         return data;
-    }
+        }
+    
 
     render() {
         //console.log(this.state);
         return (
-            <div style={{ position: "relative", width: 600, height: 400}}>
-                <p> This is what you have achieved </p>
+            <div >
+                <p className='chart'> ~This is what you have achieved~ </p>
                 <Line 
                     options={{
                         responsive: true
                     }}
                     data= {this.getChartData}
                 />
+                <form onSubmit={(event) => this.addVertical(event)}>
+                <input
+                    onChange={this.handleInputChange}
+                    placeholder="measurement"
+                    value={this.state.measurement}
+                    name="measurement"
+                />
+                <button className='chartButton' type="submit">Add New Vertical</button>
+                </form>
             </div>
         )
     }

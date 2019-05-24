@@ -2,33 +2,87 @@
 
 }
 .mainHome{
+    max-width: 800px;
+    margin: auto;
     background-image: url("action-athlete-audience-1839834.jpg");
+    background-position: center center;
+    background-size: cover;
     background-repeat: no-repeat;
+}
+
+
+/* today component styles */
+.todayDo{
+    max-width: 400px;
+    margin: auto;
+    background: rgba(0,0,0,0.7); 
+}
+
+.todayH1{
+    color: #cdcdcd;
 }
 
 .Today{
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    background: 'rgba(255,0,255,.6)';
+    background: 'rgba(255,0,255,.01)';
+}
+.todayH3{
+    color: #cdcdcd;
+    font-size: 25px;
+    /* text-shadow:2px 2px #cdcdcd; */
+    /* text-decoration: underline; */
+    /* background: rgba(255, 255, 255, 0.5); */
+}
+
+.todayP{
+    color: #cdcdcd;
+    font-size: 20px;
+    /* text-shadow: 2px 2px #cdcdcd; */
+    /* background: rgba(255, 255, 255, 0.5); */
+}
+
+/* routine component styles */
+.routine{
+    max-width: 400px;
+    margin: auto;
+    background: rgba(0,0,0,0.7);
+}
+
+.routineH1{
+    color: #cdcdcd;
+}
+/* workout component styles */
+.workoutsDone{
+    max-width: 400px;
+    margin: auto;
+    background: rgba(0,0,0,0.7); 
+}
+.workoutsH1{
+    color: #cdcdcd;
 }
 
 .Workout{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     background: 'rgba(255,0,255,.6)';
 }
 
-h3{
-    color: #000080;
-    text-decoration: underline;
-    background: rgba(255, 255, 255, .76);
+.homeH3{
+    color: #cdcdcd;
+    font-size: 25px;
+    /* text-shadow:2px 2px #cdcdcd; */
+    /* text-decoration: underline; */
+    /* background: rgba(255, 255, 255, 0.5); */
 }
 
-p{
-    color: #000080;
-    background: rgba(255, 255, 255, .76);
+.homeP{
+    color: #cdcdcd;
+    font-size: 20px;
+    /* text-shadow: 2px 2px #cdcdcd; */
+    /* background: rgba(255, 255, 255, 0.5); */
 }
