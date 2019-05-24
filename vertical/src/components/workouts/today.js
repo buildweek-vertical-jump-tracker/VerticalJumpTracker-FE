@@ -6,9 +6,9 @@ const Today = props => {
   return (
     <div className="Today">
       <h3 className='todayH3'>{props.exercise}</h3>
-      <p>{props.reps} reps</p>
+      <p className='todayP'>{props.reps} reps</p>
       <br/>
-      <p>{props.sets} sets </p>
+      <p className='todayP'>{props.sets} sets </p>
     </div>
         
   

@@ -1,0 +1,78 @@
+/* Goals component styles */
+.goalsContainer{
+ max-width: 800px;
+ margin: auto;
+ background-image:url('action-athletes-ball-1238724.jpg')  ;
+ background-position: center center;
+ background-size: cover;
+ background-repeat: no-repeat;
+}
+
+.progressHeader{
+font-weight: bold;
+font-size: 25px;
+background-color: rgba(0, 0, 0, 0.01);
+}
+
+.chart{
+text-decoration: underline;
+font-size: 20px;
+background-color: rgba(0, 0, 0, 0.01);
+}
+
+.goalsHeader{
+    background-color: rgba(0, 0, 0, 0.01);
+}
+
+.goalsP{
+    /* font-weight: bold; */
+    font-size: 35px;
+    color: #cdcdcd;
+    text-shadow: 2px 3px #000080;
+    background-color: rgba(0, 0, 0, 0.01);
+}
+
+.setGoals{
+    background-color: rgba(0, 0, 0, 0.01);
+}
+
+/* goal component styles */
+.setGoalsContainer{
+    max-width: 350px;
+    margin: auto;
+    margin-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.Goal{
+    background-color: rgba(0, 0, 0, 0.01);
+}
+
+.goalHeader{    
+    background-color: rgba(0, 0, 0, 0.01);
+    color: #cdcdcd;
+    font-size: 20px;
+    /* text-shadow: 2px 2px #000080; */
+}
+.goalButton{
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.goalButton:hover{
+    background-color: rgb(255, 5, 5);
+}
+
+/* Chart component styles */
+.chart{
+    position: center; 
+    max-width: 600; 
+    max-height: 400;
+}
+/* Goals component styles */
+.GoalsForm{
+    background-color: rgba(0, 0, 0, 0.01);
+}
+
+.goalFormButton{
+    font-weight: bold;
+}
+

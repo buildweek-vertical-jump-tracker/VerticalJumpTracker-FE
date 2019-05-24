@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Line } from 'react-chartjs-2';
+import './goals.css';
 
 export default class Chart extends Component {
     constructor(props) {
@@ -56,8 +57,8 @@ export default class Chart extends Component {
     render() {
         //console.log(this.state);
         return (
-            <div style={{ position: "relative", width: 600, height: 400}}>
-                <p> This is what you have achieved </p>
+            <div >
+                <p className='chart'> ~This is what you have achieved~ </p>
                 <Line 
                     options={{
                         responsive: true
