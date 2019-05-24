@@ -28,7 +28,7 @@ import './nav.css';
                     <div className='goals'>
                         <Link to="/goals">Goals</Link>
                     </div>
-                    <a className='navButton' onClick={() => this.removeItem() }> Logout </a>
+                    <a href='/home' className='navButton' onClick={() => this.removeItem() }> Logout </a>
                 </div>
             </div>
         );

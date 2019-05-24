@@ -29,6 +29,7 @@ export default class Chart extends Component {
              console.log(res);
              console.log('this is measurement', this.state.measurement)
               this.setState({
+                measurement:'',
                 data: {
                     labels: res.data.map(measurement => measurement.creationDate),
                     datasets: [
