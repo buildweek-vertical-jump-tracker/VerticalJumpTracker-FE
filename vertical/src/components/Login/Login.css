@@ -47,7 +47,7 @@ button{
     border-radius: 10%;
 }
 button:hover{
-    background-color: #000080;
+    background-color: #00c010;
     color:#cdcdcd;
     cursor: pointer;
 }
@@ -60,5 +60,9 @@ button:hover{
 
 .free{
     color: #000080;
+}
+.free:hover{
+    color: #000000;
+    font-size: 25px;
 }
 
